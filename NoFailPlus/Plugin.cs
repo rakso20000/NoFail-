@@ -36,7 +36,7 @@ namespace NoFailPlus {
 			
 			HarmonyInstance harmony = HarmonyInstance.Create("com.github.rakso20000.nofailplus");
 			
-			MethodInfo patched = typeof(StandardLevelFailedController).GetMethod("StartLevelFailed");
+			MethodInfo patched = typeof(StandardLevelGameplayManager).GetMethod("HandleGameEnergyDidReach0");
 			MethodInfo patch = typeof(HarmonyPatch).GetMethod("PreLevelFailed");
 			
 			harmony.Patch(patched, new HarmonyMethod(patch));
