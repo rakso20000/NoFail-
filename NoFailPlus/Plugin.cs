@@ -3,6 +3,8 @@ using IPA.Config;
 using IPA.Utilities;
 using UnityEngine.SceneManagement;
 using IPALogger = IPA.Logging.Logger;
+using MethodInfo = System.Reflection.MethodInfo;
+using Harmony;
 
 namespace NoFailPlus {
 	public class Plugin : IBeatSaberPlugin {
@@ -23,6 +25,19 @@ namespace NoFailPlus {
 				config = v;
 				
 			});
+			
+			InitHarmony();
+			
+		}
+		
+		public void InitHarmony() {
+			
+			HarmonyInstance harmony = HarmonyInstance.Create("com.github.rakso20000.nofailplus");
+			
+			MethodInfo patched = typeof(StandardLevelFailedController).GetMethod("StartLevelFailed");
+			MethodInfo patch = typeof(HarmonyPatch).GetMethod("PreLevelFailed");
+			
+			harmony.Patch(patched, new HarmonyMethod(patch));
 			
 		}
 		
