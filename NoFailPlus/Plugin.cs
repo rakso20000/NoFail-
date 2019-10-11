@@ -4,6 +4,8 @@ using IPA.Utilities;
 using UnityEngine.SceneManagement;
 using IPALogger = IPA.Logging.Logger;
 using MethodInfo = System.Reflection.MethodInfo;
+using BS_Utils.Gameplay;
+using CustomUI.GameplaySettings;
 using Harmony;
 
 namespace NoFailPlus {
@@ -38,7 +40,7 @@ namespace NoFailPlus {
 			MethodInfo patch = typeof(HarmonyPatch).GetMethod("PreLevelFailed");
 			
 			harmony.Patch(patched, new HarmonyMethod(patch));
-			
+
 		}
 		
 		public void OnApplicationStart() {
@@ -66,6 +68,20 @@ namespace NoFailPlus {
 		}
 		
 		public void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode) {
+			
+			if (scene.name == "MenuCore") {
+				
+				Gamemode.Init();
+				
+				ToggleOption enableToggle = GameplaySettingsUI.CreateToggleOption(GameplaySettingsPanels.ModifiersRight, "No Fail+", "Activates No Fail in party mode with no effect on score", null, 0);
+				enableToggle.GetValue = config.Value.Enable;
+				enableToggle.OnToggle += (bool enabled) => {
+					
+					config.Value.Enable = enabled;
+					
+				};
+				
+			}
 			
 		}
 		

@@ -11,7 +11,7 @@ namespace NoFailPlus {
 		[HarmonyPrefix]
 		public static bool PreLevelFailed() {
 			
-			return false;
+			return !Plugin.config.Value.Enable;
 			
 		}
 		

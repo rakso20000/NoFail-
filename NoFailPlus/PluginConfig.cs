@@ -3,5 +3,7 @@
 		
 		public bool RegenerateConfig = true;
 		
+		public bool Enable = false;
+		
 	}
 }
