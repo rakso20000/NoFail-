@@ -1,7 +1,7 @@
 ﻿{
 	"$schema": "https://raw.githubusercontent.com/nike4613/ModSaber-MetadataFileSchema/master/Schema.json",
 	"author": "rakso20000",
-	"description": "",
+	"description": "Adds a mode to activate No Fail in party mode with no effect on score",
 	"gameVersion": "1.5.0",
 	"id": null,
 	"name": "NoFailPlus",

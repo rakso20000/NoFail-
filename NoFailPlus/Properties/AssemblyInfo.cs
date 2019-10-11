@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NoFailPlus")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Adds a mode to activate No Fail in party mode with no effect on score")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NoFailPlus")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2019 rakso20000")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
